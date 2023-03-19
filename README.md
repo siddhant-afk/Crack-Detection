@@ -5,9 +5,9 @@ It is essential to keep an eye on the state of the buildings in order to reduce 
 ## Objectives
 ---
 
-*Objective 1 :* To identify if a given image has a crack or not (Crack Detection).
+**Objective 1 :** To identify if a given image has a crack or not (Crack Detection).
 
-*Objective 2 :* To classify the identified crack as light, moderate, severe or plaster damage (Crack Classification).
+**Objective 2 :** To classify the identified crack as light, moderate, severe or plaster damage (Crack Classification).
 
 ## Objective 1 : Crack Detection
 ---
@@ -17,9 +17,9 @@ The Dataset was taken from the following source :
 
 [Özgenel, Çağlar Fırat (2019), “Concrete Crack Images for Classification”, Mendeley Data, v2](https://data.mendeley.com/datasets/5y9wdsg2zt/2)
 
-This dataset contains about *40,000* images out of which we have *20,000 crack images* and *20,000 non-crack images*.
+This dataset contains about **40,000** images out of which we have **20,000 crack images** and **20,000 non-crack images**.
 
-To reduce the training time and keeping available resources in mind we have only taken a sample of *5000 images*.
+To reduce the training time and keeping available resources in mind we have only taken a sample of **5000 images**.
 
 
 ### Model
@@ -32,7 +32,7 @@ The model uses convolutional neural networks or CNNs which consist of the follow
 + Dense layer (for output)
 
 
-
+```
 inputs = tf.keras.Input(shape=(120, 120, 3))
 x = tf.keras.layers.Conv2D(filters=16, kernel_size=(3, 3), activation='relu')(inputs)
 x = tf.keras.layers.MaxPool2D(pool_size=(2, 2))(x)
@@ -42,15 +42,15 @@ x = tf.keras.layers.GlobalAveragePooling2D()(x)
 outputs = tf.keras.layers.Dense(1, activation='sigmoid')(x)
 
 model = tf.keras.Model(inputs=inputs, outputs=outputs)
+```
 
 
-
-The images were resized to *120 x 120 pixels* to speed up training.
+The images were resized to **120 x 120 pixels** to speed up training.
 
 The model summary is as follows :
 
 
-
+```
 Model: "model_2"
 _________________________________________________________________
 Layer (type)                 Output Shape              Param #   
@@ -75,8 +75,9 @@ Non-trainable params: 0
 _________________________________________________________________
 
 
+```
 
-The model was trained for *100 epochs* with an *EarlyStopping callback*
+The model was trained for **100 epochs** with an **EarlyStopping callback**
 
 
 ## Evaluation & Results
